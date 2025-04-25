@@ -1,104 +1,83 @@
-# Taragis Parking Management System - File Connections
+# Taragis Parking System - Paano Gumagana
 
-## How the Files are Connected
+## Koneksyon ng mga Files
 
-The Taragis Parking Management System consists of several interconnected files that work together to provide the parking management functionality. Here's an explanation of how they are connected:
+Eto ang simple explanation kung paano magkakakonekta yung mga files sa parking system natin:
 
-### HTML and CSS Connection
+### HTML at CSS
 
-1. In `user.html`, the CSS is connected through the link tag in the head section:
+1. Sa `user.html`, ganito nakakonekta yung CSS:
    ```html
    <link rel="stylesheet" href="mini.css" />
    ```
 
-2. In `manager.html`, the CSS is connected the same way:
+2. Sa `manager.html` din, parehas lang:
    ```html
    <link rel="stylesheet" href="mini.css" />
    ```
 
-The `mini.css` file provides all the styling for both the user and manager interfaces, including:
-- Layout and container styling
-- Form elements
-- Parking grid visualization
-- Vehicle list display
-- Responsive design for different screen sizes
+Yung `mini.css` nagbibigay ng lahat ng design - kulay, layout, at kung ano pa. Para maganda tingnan yung parking system natin.
 
-### HTML and JavaScript Connection
+### HTML at JavaScript
 
-1. In `user.html`, the JavaScript is connected at the bottom of the body section:
+1. Sa `user.html`, ganito nakakonekta yung JavaScript:
    ```html
    <script>
-     // Force user role
+     // Para sa user mode
      localStorage.setItem('parkingRole', 'user');
    </script>
    <script src="mini.js"></script>
    ```
 
-2. In `manager.html`, the JavaScript is connected similarly:
+2. Sa `manager.html` naman:
    ```html
    <script>
-     // Force manager role
+     // Para sa manager mode
      localStorage.setItem('parkingRole', 'manager');
    </script>
    <script src="mini.js"></script>
    ```
 
-The inline script before loading `mini.js` sets the user's role in localStorage, which determines what functionality is available to them.
+May maliit na script muna na nagseset kung user ka ba o manager, tapos tsaka load yung main na `mini.js`.
 
-### JavaScript and HTML Element Connections
+### JavaScript at HTML Elements
 
-The `mini.js` file connects to HTML elements through JavaScript selectors:
+Ganito kinukuha ng JavaScript yung mga elements mula sa HTML:
 
 ```javascript
 const form = document.getElementById("parkingForm"); 
 const plateInput = document.getElementById("plate"); 
 const floorSelect = document.getElementById("floorSelect"); 
 const slotSelect = document.getElementById("slotSelect"); 
-const parkingLevels = document.getElementById("parkingLevels"); 
-const parkingList = document.getElementById("parkingList"); 
-const refreshBtn = document.getElementById("refreshBtn");
+// at iba pa
 ```
 
-These selectors match the IDs of elements in both HTML files:
+Kailangan match yung mga ID sa HTML para makuha ng JS:
 
 ```html
 <form id="parkingForm">
   <input type="text" id="plate" placeholder="Enter Plate Number" required />
-  <select id="floorSelect">
-    <!-- options -->
-  </select>
-  <select id="slotSelect">
-    <!-- options -->
-  </select>
-  <button type="submit">Park</button>
+  <!-- at iba pa -->
 </form>
-
-<div id="parkingLevels"></div>
-<ul id="parkingList"></ul>
 ```
 
-### Data Flow Between Files
+## Paano Gumagana
 
-1. **User Interaction**: User interacts with HTML elements (forms, buttons)
-2. **JavaScript Handling**: Event listeners in `mini.js` respond to these interactions
-3. **Data Storage**: Data is stored in localStorage for persistence
-4. **UI Updates**: JavaScript updates the HTML elements dynamically
-5. **Styling Application**: CSS styles are applied to all elements, including dynamically created ones
+1. **User:** Pag pinindot mo button o nag-input ka
+2. **JavaScript:** Nakikinig siya sa mga actions mo at may gagawin
+3. **Data:** Naka-save sa localStorage para hindi mawala kahit i-refresh
+4. **UI:** Automatic nagbabago yung display base sa ginagawa mo
 
-## No Modifications Needed
+## Original na ba?
 
-The files are already properly connected in their original state:
+Oo pre, original na yang code. Di na kailangan i-revert:
 
-1. HTML files (`user.html` and `manager.html`) correctly link to the CSS and JS files
-2. JavaScript (`mini.js`) correctly references the HTML elements by ID
-3. CSS (`mini.css`) correctly styles all the elements used in the HTML
+1. Tama na yung connection ng HTML sa CSS at JS
+2. Working lahat ng features
+3. Wala nang kailangan baguhin
 
-No changes are needed to restore these connections as they are working as designed in their original form.
+## Paano Gamitin
 
-## Using the System
-
-To use the system with these original files:
-
-1. Open either `user.html` (for basic user interface) or `manager.html` (for admin interface)
-2. The browser will automatically load the connected CSS and JavaScript files
-3. The system will function as designed with the original code 
+1. I-click mo lang yung `user.html` kung normal user ka
+2. O kaya `manager.html` kung ikaw yung boss
+3. Automatic na magloload ang CSS at JS, good to go ka na 
