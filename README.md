@@ -144,7 +144,7 @@ Kung gusto nyo ng server implementation:
 
 ### 2. Git Configuration
 
-Ang project ay may `.gitignore` file na nag-e-exclude ng mga files na hindi kailangang i-track:
+I added `.gitignore` file na nag-e-exclude ng mga files na hindi kailangang i-track:
 - Python cache files
 - Log files
 - Data files (parking_data.json)
@@ -163,7 +163,4 @@ Ang project ay may `.gitignore` file na nag-e-exclude ng mga files na hindi kail
    http://localhost:5000
    ```
 
-3. Gumamit ng manager role para makita ang statistics dashboard
-4. Mag-park at mag-remove ng sasakyan
-5. I-refresh ang browser at makikita na hindi nawala ang data
 
