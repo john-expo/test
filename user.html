@@ -1,0 +1,48 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+  <title>Parking</title> 
+  <link rel="stylesheet" href="mini.css" /> 
+</head> 
+<body> 
+  <div class="container"> 
+    <h1>🚗 Parking</h1> 
+    
+    <div class="user-controls">
+      <a href="manager.html" class="button">Switch to Manager View</a>
+    </div>
+ 
+    <form id="parkingForm"> 
+      <input type="text" id="plate" placeholder="Enter Plate Number" required /> 
+      
+      <select id="floorSelect"> 
+        <option value="">Select Floor</option> 
+        <option value="0">Level 1</option> 
+        <option value="1">Level 2</option> 
+        <option value="2">Level 3</option> 
+        <option value="3">Level 4</option> 
+      </select> 
+ 
+      <select id="slotSelect"> 
+        <option value="">Select Slot</option> 
+      </select> 
+ 
+      <button type="submit">Park</button> 
+    </form> 
+ 
+    <h2>Parking Levels:</h2> 
+    <div id="parkingLevels"></div> 
+ 
+    <h2>Currently Parked Vehicles:</h2> 
+    <ul id="parkingList"></ul>
+  </div> 
+  
+  <script>
+    // Force user role
+    localStorage.setItem('parkingRole', 'user');
+  </script>
+  <script src="mini.js"></script> 
+</body> 
+</html>
