@@ -16,7 +16,6 @@ Eto ang simple explanation kung paano magkakakonekta yung mga files sa parking s
    <link rel="stylesheet" href="mini.css" />
    ```
 
-Yung `mini.css` nagbibigay ng lahat ng design - kulay, layout, at kung ano pa. Para maganda tingnan yung parking system natin.
 
 ### HTML at JavaScript
 
@@ -61,23 +60,10 @@ Kailangan match yung mga ID sa HTML para makuha ng JS:
 </form>
 ```
 
-## Paano Gumagana
+## hwo it works 
 
 1. **User:** Pag pinindot mo button o nag-input ka
 2. **JavaScript:** Nakikinig siya sa mga actions mo at may gagawin
 3. **Data:** Naka-save sa localStorage para hindi mawala kahit i-refresh
 4. **UI:** Automatic nagbabago yung display base sa ginagawa mo
 
-## Original na ba?
-
-Oo pre, original na yang code. Di na kailangan i-revert:
-
-1. Tama na yung connection ng HTML sa CSS at JS
-2. Working lahat ng features
-3. Wala nang kailangan baguhin
-
-## Paano Gamitin
-
-1. I-click mo lang yung `user.html` kung normal user ka
-2. O kaya `manager.html` kung ikaw yung boss
-3. Automatic na magloload ang CSS at JS, good to go ka na 
