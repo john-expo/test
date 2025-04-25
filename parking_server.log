@@ -1,0 +1,28 @@
+2025-04-26 03:52:09,611 - wased_modified - INFO - Starting Parking Management Server...
+2025-04-26 03:52:09,611 - wased_modified - INFO - No data file found at parking_data.json, starting with empty data
+2025-04-26 03:52:09,611 - wased_modified - INFO - Initialized with 0 parked cars
+2025-04-26 03:52:09,613 - wased_modified - INFO - Starting server on http://localhost:5000
+2025-04-26 03:52:10,606 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.100.106:5000
+2025-04-26 03:52:10,607 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-26 03:52:10,610 - werkzeug - INFO -  * Restarting with stat
+2025-04-26 03:52:10,917 - wased_modified - INFO - Starting Parking Management Server...
+2025-04-26 03:52:10,918 - wased_modified - INFO - No data file found at parking_data.json, starting with empty data
+2025-04-26 03:52:10,918 - wased_modified - INFO - Initialized with 0 parked cars
+2025-04-26 03:52:10,920 - wased_modified - INFO - Starting server on http://localhost:5000
+2025-04-26 03:52:10,944 - werkzeug - WARNING -  * Debugger is active!
+2025-04-26 03:52:10,953 - werkzeug - INFO -  * Debugger PIN: 793-217-980
+2025-04-26 03:52:20,063 - wased_modified - INFO - Serving homepage
+2025-04-26 03:52:20,090 - werkzeug - INFO - 127.0.0.1 - - [26/Apr/2025 03:52:20] "GET / HTTP/1.1" 200 -
+2025-04-26 03:52:20,092 - wased_modified - INFO - Serving homepage
+2025-04-26 03:52:20,093 - werkzeug - INFO - 127.0.0.1 - - [26/Apr/2025 03:52:20] "[36mGET / HTTP/1.1[0m" 304 -
+2025-04-26 03:52:20,303 - werkzeug - INFO - 127.0.0.1 - - [26/Apr/2025 03:52:20] "GET /style2.css HTTP/1.1" 200 -
+2025-04-26 03:52:20,438 - werkzeug - INFO - 127.0.0.1 - - [26/Apr/2025 03:52:20] "[36mGET /style2.css HTTP/1.1[0m" 304 -
+2025-04-26 03:52:20,611 - werkzeug - INFO - 127.0.0.1 - - [26/Apr/2025 03:52:20] "GET /script2.js HTTP/1.1" 200 -
+2025-04-26 03:52:20,919 - werkzeug - INFO - 127.0.0.1 - - [26/Apr/2025 03:52:20] "[36mGET /script2.js HTTP/1.1[0m" 304 -
+2025-04-26 03:52:21,202 - wased_modified - WARNING - 404 error: /favicon.ico
+2025-04-26 03:52:21,203 - werkzeug - INFO - 127.0.0.1 - - [26/Apr/2025 03:52:21] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-26 03:53:21,669 - wased_modified - INFO - Server stopped
+2025-04-26 03:53:21,696 - wased_modified - INFO - Server stopped
