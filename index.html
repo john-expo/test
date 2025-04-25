@@ -3,19 +3,24 @@
 <head> 
   <meta charset="UTF-8" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-  <title>Parking</title> 
-  <link rel="stylesheet" href="mini.css" /> 
+  <title>Parking </title> 
+  <link rel="stylesheet" href="style2.css" /> 
 </head> 
 <body> 
   <div class="container"> 
-    <h1>🚗 Parking</h1> 
-    
-    <div class="user-controls">
-      <a href="manager.html" class="button">Switch to Manager View</a>
-    </div>
+    <h1>
+ 🚗
+ Parking </h1> 
+ 
+    <label for="role">Select Role:</label> 
+    <select id="role"> 
+      <option value="user">User</option> 
+      <option value="manager">Manager</option> 
+    </select> 
  
     <form id="parkingForm"> 
-      <input type="text" id="plate" placeholder="Enter Plate Number" required /> 
+      <input type="text" id="plate" placeholder="Enter Plate Number" 
+required /> 
       
       <select id="floorSelect"> 
         <option value="">Select Floor</option> 
@@ -35,14 +40,9 @@
     <h2>Parking Levels:</h2> 
     <div id="parkingLevels"></div> 
  
-    <h2>Currently Parked Vehicles:</h2> 
-    <ul id="parkingList"></ul>
-  </div> 
-  
-  <script>
-    // Force user role
-    localStorage.setItem('parkingRole', 'user');
-  </script>
-  <script src="mini.js"></script> 
+<h2>Currently Parked Vehicles:</h2> 
+<ul id="parkingList"></ul> 
+</div> 
+<script src="script2.js"></script> 
 </body> 
-</html>
+</html> 
