@@ -34,7 +34,7 @@ import json
 import logging
 from datetime import datetime
 
-# Set up logging
+# ENHANCED: Added logging system (not in original wased.py)
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -45,14 +45,14 @@ logging.basicConfig(
 )
 logger = logging.getLogger("wased_modified")
 
-# Initialize Flask app
+# MODIFIED: Enhanced Flask app initialization with static file support
 app = Flask(__name__, static_folder=".", static_url_path="")
 logger.info("Starting Parking Management Server...")
 
-# Storage file for persistence
+# NEW: Storage file for persistence (original used in-memory only)
 DATA_FILE = "parking_data.json"
 
-# CORS support
+# NEW: Added CORS support (not in original)
 @app.after_request
 def after_request(response):
     response.headers.add('Access-Control-Allow-Origin', '*')
@@ -60,8 +60,9 @@ def after_request(response):
     response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
     return response
 
-# ------  Data Management Functions ------ #
+# ------ Data Management Functions ------ #
 
+# NEW: Added file-based data persistence functions (original used in-memory only)
 def load_parking_data():
     """
     Load parking data from JSON file or return empty array if file doesn't exist
@@ -77,6 +78,7 @@ def load_parking_data():
     logger.info(f"No data file found at {DATA_FILE}, starting with empty data")
     return []
 
+# NEW: Added save function for persistence (original had no persistence)
 def save_parking_data(data):
     """
     Save parking data to JSON file
@@ -90,12 +92,13 @@ def save_parking_data(data):
         logger.error(f"Error saving data to {DATA_FILE}: {e}")
         return False
 
-# Initialize data
+# MODIFIED: Initialize data from file instead of empty list
 parking_data = load_parking_data()
 logger.info(f"Initialized with {len([x for x in parking_data if x is not None])} parked cars")
 
 # ------ API Endpoints ------ #
 
+# NEW: Added route to serve static files (not in original)
 @app.route('/')
 def home():
     """
@@ -104,14 +107,20 @@ def home():
     logger.info("Serving homepage")
     return app.send_static_file('index.html')
 
+# MODIFIED: Enhanced view_cars function with proper REST endpoint
 @app.route('/api/parking', methods=['GET'])
 def get_parking():
     """
     Get all parking data
+    
+    Original:
+    def view_cars():
+        return {"parked_cars": parked_cars}
     """
     logger.info("API: Fetching all parking data")
     return jsonify(parking_data)
 
+# NEW: Added bulk update endpoint (not in original)
 @app.route('/api/parking/all', methods=['POST'])
 def set_all_parking():
     """
@@ -132,10 +141,28 @@ def set_all_parking():
         logger.error(f"API: Error in set_all_parking: {e}")
         return jsonify({"error": str(e)}), 500
 
+# MODIFIED: Enhanced park_car function with better error handling and persistence
 @app.route('/api/parking', methods=['POST'])
 def add_car():
     """
     Add a car to a parking slot
+    
+    Original:
+    def park_car():
+        data = request.json
+        for car in parked_cars:
+            if car['floor'] == data['floor'] and car['slot'] == data['slot'] and car['bay'] == data['bay']:
+                return {"message": "This slot is already taken."}, 400
+        
+        car_info = {
+            "plate": data['plate'],
+            "floor": data['floor'],
+            "slot": data['slot'],
+            "bay": data['bay'],
+            "time": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        }
+        parked_cars.append(car_info)
+        return {"message": "Car parked successfully!"}, 200
     """
     if not request.json:
         logger.error("API: Invalid request data for add_car")
@@ -145,24 +172,24 @@ def add_car():
         car = request.json
         logger.info(f"API: Adding car with plate {car.get('plate')} to parking")
         
-        # Calculate slot index
+        # MODIFIED: Uses index-based approach instead of searching through list
         floor = int(car.get('floor', 0))
         slot = int(car.get('slot', 0))
         index = floor * 13 + slot  # 13 slots per floor as in the JS
         
-        # Ensure array is big enough
+        # ENHANCED: Auto-expands array as needed
         global parking_data
         while len(parking_data) <= index:
             parking_data.append(None)
         
-        # Add car to data
+        # MODIFIED: Stores at index instead of appending
         parking_data[index] = {
             'plate': car.get('plate', ''),
             'time': car.get('time', datetime.now().isoformat()),
             'role': car.get('role', 'user')
         }
         
-        # Save to file
+        # NEW: Saves to file for persistence
         save_parking_data(parking_data)
         
         return jsonify({"success": True})
@@ -170,10 +197,20 @@ def add_car():
         logger.error(f"API: Error in add_car: {e}")
         return jsonify({"error": str(e)}), 500
 
+# MODIFIED: Enhanced unpark_car function with better error handling
 @app.route('/api/parking/<int:index>', methods=['DELETE'])
 def remove_car(index):
     """
     Remove a car from a parking slot
+    
+    Original:
+    def unpark_car():
+        data = request.json
+        for car in parked_cars:
+            if car['plate'] == data['plate']:
+                parked_cars.remove(car)
+                return {"message": "Car removed."}, 200
+        return {"message": "Car not found."}, 404
     """
     try:
         logger.info(f"API: Removing car at index {index}")
@@ -185,7 +222,9 @@ def remove_car(index):
             else:
                 plate = parking_data[index].get('plate', 'unknown')
                 logger.info(f"API: Removing car with plate {plate} from index {index}")
+                # MODIFIED: Sets to None instead of removing (preserves indices)
                 parking_data[index] = None
+                # NEW: Saves to file for persistence
                 save_parking_data(parking_data)
             
         return jsonify({"success": True})
@@ -193,6 +232,7 @@ def remove_car(index):
         logger.error(f"API: Error in remove_car: {e}")
         return jsonify({"error": str(e)}), 500
 
+# NEW: Added statistics API (not in original)
 @app.route('/stats', methods=['GET'])
 def get_stats():
     """
@@ -226,6 +266,7 @@ def get_stats():
         logger.error(f"API: Error in get_stats: {e}")
         return jsonify({"error": str(e)}), 500
 
+# NEW: Added health check endpoint (not in original)
 @app.route('/api/health', methods=['GET'])
 def health_check():
     """
@@ -240,6 +281,7 @@ def health_check():
 
 # ------ Error Handlers ------ #
 
+# NEW: Added proper error handlers (not in original)
 @app.errorhandler(404)
 def not_found(e):
     logger.warning(f"404 error: {request.path}")
@@ -252,6 +294,7 @@ def server_error(e):
 
 # ------ Main Function ------ #
 
+# MODIFIED: Enhanced run parameters
 if __name__ == '__main__':
     logger.info("Starting server on http://localhost:5000")
     app.run(debug=True, host='0.0.0.0', port=5000)
