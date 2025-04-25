@@ -89,7 +89,7 @@ function renderParkingList() {
 3. JS reads data from localStorage
 4. JS updates UI based sa data (shows parked cars, etc.)
 
-## Kung Ano Ginawa Natin sa Original Code
+## Kung Ano Ginawa nyo sa Original Code
 
 ### 1. Ang Original Files at Restorations
 
@@ -98,7 +98,7 @@ Sa original codebase, meron tayong:
 - **style2.css**: Para sa styling at layout ng UI
 - **script2.js**: Para sa functionality at data processing
 
-Ang ginawa natin ay ni-restore lang ang mga original files na ito, walang binago sa functionality nila. Ibig sabihin:
+Ang ginawa ko ay ni-restore lang ang mga original files na ito, walang binago sa functionality nila. Ibig sabihin:
 
 - Hindi binago ang ID ng mga HTML elements (para tamang ma-select sila ng JS)
 - Hindi binago ang structure ng localStorage data
@@ -161,7 +161,7 @@ li.innerHTML = `
 `;
 ```
 
-### 4. Data Flow nung Ni-restore Natin
+### 4. Data Flow nung Ni-restore Na
 
 1. **User Interaction Flow:**
    - User selects a floor → `floorSelect.addEventListener("change", ...)`
@@ -186,7 +186,7 @@ li.innerHTML = `
 
 ## Optional Python Backend (wased.py)
 
-Ang current system natin ay gumagamit ng localStorage para sa data storage. Kung gusto mo ng server-based storage, pwede mong gamitin ang wased.py bilang backend.
+Ang current system nyo ay gumagamit ng localStorage para sa data storage. Kung gusto mo ng server-based storage, pwede mong gamitin ang wased.py bilang backend.
 
 ### Paano i-setup:
 
