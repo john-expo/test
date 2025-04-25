@@ -1,8 +1,11 @@
+# Taragis Parking System
+
 ## Paano i-implement o na-implement ang Server Functionality
 
-Yung  original codebase nyo gumagamit ng localStorage para sa data persistence.
-ito na yung guide,  paano i-implement ang server-side storage while retaining the original code.
+Yung original codebase nyo gumagamit ng localStorage para sa data persistence.
+Ito na yung guide, paano i-implement ang server-side storage while retaining the original code.
 
+## Project Files
 
 1. **Orig Files (unmodified):**
    - `index.html` - Original HTML file
@@ -13,24 +16,43 @@ ito na yung guide,  paano i-implement ang server-side storage while retaining th
    - `modified_script2.js` - Modified version ng script2.js with server connectivity
    - `wased_modified.py` - Python Flask backend
 
-### 1. Setup ng Python Backend
+## Installation at Setup
 
-**Install Flask:**
+### 1. Install Dependencies
+
+I-install ang mga dependencies gamit ang requirements.txt:
+
 ```bash
-pip install flask
+pip install -r requirements.txt
 ```
 
-**Run ang Server:**
+Ang requirements.txt ay may mga sumusunod na dependencies:
+- Flask==2.0.1
+- Werkzeug==2.0.1
+- Jinja2==3.0.1
+- itsdangerous==2.0.1
+- click==8.0.1
+- MarkupSafe==2.0.1
+- python-dotenv==0.19.0
+
+### 2. Run ang Python Backend
+
 ```bash
 python wased_modified.py
 ```
 
-**Access sa Browser:**
+### 3. Access sa Browser
+
+```
 http://localhost:5000
+```
 
-### 2. Paano Gamitin ang Modified Script with Original Code
+## File Configuration
 
-**Sa HTML, include mo both files:**
+### 1. HTML File Setup
+
+Sa HTML, i-include mo both JS files sa tamang order:
+
 ```html
 <!-- Sa dulo ng index.html, bago mag-close ang </body> -->
 <script src="script2.js"></script>
@@ -41,7 +63,7 @@ Sa ganitong paraan:
 1. Gagana pa rin ang original code
 2. Pero ang `modified_script2.js` ay mag-o-override ng ilang functions para gamitin ang server
 
-### 3. Kung Paano Gumagana ang Connection
+### 2. Kung Paano Gumagana ang Connection
 
 Ang `modified_script2.js` ay:
 
@@ -79,7 +101,9 @@ Ang `modified_script2.js` ay:
    }
    ```
 
-### 4. Server-side Data Persistence
+## Server Features
+
+### 1. Server-side Data Persistence
 
 Ang data ay naka-save sa `parking_data.json` file na automatically created ng server:
 
@@ -97,7 +121,21 @@ def save_parking_data(data):
         json.dump(data, f)
 ```
 
-### 6. Pag Switch sa Original at Modified Code
+### 2. Logging
+
+Ang server ay automatic na gumagawa ng `parking_server.log` file para sa debugging at monitoring. Para sa detailed logging information, i-check ang file na ito.
+
+### 3. API Endpoints
+
+Ang server ay may mga sumusunod na endpoints:
+- `GET /api/parking` - Para kunin ang lahat ng parking data
+- `POST /api/parking` - Para mag-add ng sasakyan
+- `DELETE /api/parking/<index>` - Para mag-remove ng sasakyan
+- `GET /stats` - Para kunin ang statistics
+
+## Configuration Options
+
+### 1. Pag Switch sa Original at Modified Code
 
 Kung gusto nyo ng pure local storage (original code):
 - I-remove lang ang `<script src="modified_script2.js"></script>` sa HTML
@@ -105,7 +143,16 @@ Kung gusto nyo ng pure local storage (original code):
 Kung gusto nyo ng server implementation:
 - I-include pareho ang `script2.js` at `modified_script2.js`
 
-### 7. Paano i-Test
+### 2. Git Configuration
+
+Ang project ay may `.gitignore` file na nag-e-exclude ng mga files na hindi kailangang i-track:
+- Python cache files
+- Log files
+- Data files (parking_data.json)
+- IDE files
+- Environment files
+
+## Testing
 
 1. Run the Python server:
    ```bash
@@ -115,5 +162,9 @@ Kung gusto nyo ng server implementation:
 2. Access sa browser:
    ```
    http://localhost:5000
-   ``
+   ```
+
+3. Gumamit ng manager role para makita ang statistics dashboard
+4. Mag-park at mag-remove ng sasakyan
+5. I-refresh ang browser at makikita na hindi nawala ang data
 
