@@ -4,7 +4,7 @@ const floorSelect = document.getElementById("floorSelect");
 const slotSelect = document.getElementById("slotSelect"); 
 const parkingLevels = document.getElementById("parkingLevels"); 
 const parkingList = document.getElementById("parkingList"); 
-const roleSelect = document.getElementById("role") || {value: localStorage.getItem("parkingRole") || "user"}; 
+const roleSelect = document.getElementById("role"); 
 const refreshBtn = document.getElementById("refreshBtn");
 
 // Constants
