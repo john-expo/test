@@ -43,5 +43,5 @@ Thumbs.db
 
 # Node modules if using npm/node
 node_modules/ 
-
+#logs
 parking_server.log
