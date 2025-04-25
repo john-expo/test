@@ -1,4 +1,3 @@
-# Taragis Parking System
 
 ## Paano i-implement o na-implement ang Server Functionality
 
