@@ -1,17 +1,14 @@
-# Taragis Parking System - Server Implementation Guide
-
 ## Paano i-implement ang Server Functionality
 
-Ang original codebase ay gumagamit ng localStorage para sa data persistence. Sa guide na ito, ipapakita kung paano i-implement ang server-side storage habang pinapanatili ang original code.
+Ang original codebase ay gumagamit ng localStorage para sa data persistence. ito na yung guide,  paano i-implement ang server-side storage habang pinapanatili ang original code.
 
-### Mga Files na Kailangan
 
-1. **Orig Files (hindi babaguhin):**
+1. **Orig Files (unmodified):**
    - `index.html` - Original HTML file
    - `style2.css` - Original CSS file
    - `script2.js` - Original JavaScript file
 
-2. **New Files (orig code weith changes):**
+2. **New Files (orig code with changes):**
    - `modified_script2.js` - Modified version ng script2.js with server connectivity
    - `wased_modified.py` - Python Flask backend
 
@@ -112,7 +109,7 @@ def save_parking_data(data):
 Kung gusto mo ng pure local storage (original code):
 - I-remove lang ang `<script src="modified_script2.js"></script>` sa HTML
 
-Kung gusto mo ng server implementation:
+Kung gusto nyo ng server implementation:
 - I-include pareho ang `script2.js` at `modified_script2.js`
 
 ### 7. Paano i-Test
@@ -126,7 +123,3 @@ Kung gusto mo ng server implementation:
    ```
    http://localhost:5000
    ```
-
-3. Gumamit ng manager role para makita ang statistics dashboard
-4. Mag-park at mag-remove ng sasakyan
-5. I-refresh ang browser at makikita na hindi nawala ang data 
