@@ -96,17 +96,9 @@ def save_parking_data(data):
         json.dump(data, f)
 ```
 
-### 5. Mga Advantages ng Server Implementation
-
-1. **Persistent Data:** Hindi mawawala ang data kahit i-clear ang browser cache
-2. **Multi-device Access:** Pwedeng access sa iba't ibang devices
-3. **Centralized Management:** May unified database para sa lahat ng users
-4. **Enhanced Features:** May statistics at advanced monitoring features
-5. **Better Security:** Protected ang data sa server-side storage
-
 ### 6. Pag Switch sa Original at Modified Code
 
-Kung gusto mo ng pure local storage (original code):
+Kung gusto nyo ng pure local storage (original code):
 - I-remove lang ang `<script src="modified_script2.js"></script>` sa HTML
 
 Kung gusto nyo ng server implementation:
