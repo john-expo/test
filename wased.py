@@ -77,3 +77,5 @@ def main():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+# oks nayan ang tanong kaya mo e connect? bahala kana
