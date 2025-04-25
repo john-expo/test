@@ -164,4 +164,4 @@ I added `.gitignore` file na nag-e-exclude ng mga files na hindi kailangang i-tr
    ```
 
 
-#note get a copy or clone this repository or codebase. I'm going to delete it eventually
+note get a copy or clone this repository or codebase. I'm going to remove it here later
