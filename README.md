@@ -1,6 +1,7 @@
-## Paano i-implement ang Server Functionality
+## Paano i-implement o na-implement ang Server Functionality
 
-Ang original codebase ay gumagamit ng localStorage para sa data persistence. ito na yung guide,  paano i-implement ang server-side storage habang pinapanatili ang original code.
+Yung  original codebase nyo gumagamit ng localStorage para sa data persistence.
+ito na yung guide,  paano i-implement ang server-side storage while retaining the original code.
 
 
 1. **Orig Files (unmodified):**
@@ -8,7 +9,7 @@ Ang original codebase ay gumagamit ng localStorage para sa data persistence. ito
    - `style2.css` - Original CSS file
    - `script2.js` - Original JavaScript file
 
-2. **New Files (orig code with changes):**
+2. **New Files (orig code with changes I just added "modified prefix in file naming):** 
    - `modified_script2.js` - Modified version ng script2.js with server connectivity
    - `wased_modified.py` - Python Flask backend
 
@@ -114,4 +115,5 @@ Kung gusto nyo ng server implementation:
 2. Access sa browser:
    ```
    http://localhost:5000
-   ```
+   ``
+
