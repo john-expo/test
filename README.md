@@ -25,7 +25,7 @@ I-install ang mga dependencies gamit ang requirements.txt:
 pip install -r requirements.txt
 ```
 
-Ang requirements.txt ay may mga sumusunod na dependencies:
+ito ung mga requirements na may dependencies:
 - Flask==2.0.1
 - Werkzeug==2.0.1
 - Jinja2==3.0.1
